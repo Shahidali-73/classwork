@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Library Books</title>
+</head>
+<body>
+    <h1>Book List</h1>
+    <table border="1">
+        <tr>
+            <th>Book Name</th>
+            <th>Author</th>
+            <th>Year</th>
+            <th>Actions</th>
+        </tr>
+        {% for products in product_list %}
+        <tr>
+            <td>{{ products.title }}</td>
+            <td>{{ products.author }}</td>
+            <td>{{ products.year }}</td>
+            <td>
+                <a href="{% url 'update' products.id %}">Edit</a> |
+                <a href="{% url 'delete' products.id %}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
