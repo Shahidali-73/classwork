@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>{% if create %}Add Medicine{% else %}Edit Medicine{% endif %}</h2>
+  <form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+    <a href="{% url 'medicine_list' %}">Cancel</a>
+  </form>
+{% endblock %}
